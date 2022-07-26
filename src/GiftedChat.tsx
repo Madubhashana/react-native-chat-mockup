@@ -221,6 +221,7 @@ export interface GiftedChatProps<TMessage extends IMessage = IMessage> {
     props: Message<TMessage>['props'],
     nextProps: Message<TMessage>['props'],
   ): boolean
+  showsVerticalScrollIndicator?:boolean
 }
 
 export interface GiftedChatState<TMessage extends IMessage = IMessage> {
@@ -303,6 +304,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
     minComposerHeight: MIN_COMPOSER_HEIGHT,
     maxComposerHeight: MAX_COMPOSER_HEIGHT,
     wrapInSafeArea: true,
+    showsVerticalScrollIndicator:false
   }
 
   static propTypes = {
@@ -368,6 +370,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
     maxComposerHeight: PropTypes.number,
     alignTop: PropTypes.bool,
     wrapInSafeArea: PropTypes.bool,
+    showsVerticalScrollIndicator: PropTypes.bool
   }
 
   static append<TMessage extends IMessage>(
@@ -697,7 +700,7 @@ class GiftedChat<TMessage extends IMessage = IMessage> extends React.Component<
           invertibleScrollViewProps={this.invertibleScrollViewProps}
           messages={this.getMessages()}
           forwardRef={this._messageContainerRef}
-          isTyping={this.props.isTyping}
+          isTyping={this.props.isTyping} 
         />
         {this.renderChatFooter()}
       </View>

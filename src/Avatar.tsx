@@ -74,9 +74,7 @@ export function Avatar<TMessage extends IMessage = IMessage>(
   const messageToCompare = renderAvatarOnTop ? previousMessage : nextMessage
   const computedStyle = renderAvatarOnTop ? 'onTop' : 'onBottom'
 
-  if (renderAvatar === null) {
-    return null
-  }
+  if (!renderAvatar) return null
 
   if (
     !showAvatarForEveryMessage &&

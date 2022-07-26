@@ -1,7 +1,7 @@
 {
-  "name": "react-native-gifted-chat",
-  "version": "1.0.4",
-  "description": "The most complete chat UI for React Native",
+  "name": "react-native-chat-mockup",
+  "version": "1.0.6",
+  "description": "A complete chat UI mockup for React Native",
   "main": "src/index.ts",
   "repository": {
     "type": "git",
@@ -17,25 +17,15 @@
     "message",
     "chat"
   ],
-  "author": "Farid Safi",
+  "author": "Original author: Farid Safi",
+  "contributors": ["Rewrite: Hashan Madubhashana"],
+  "private":true,
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/FaridSafi/react-native-gifted-chat/issues"
-  },
   "homepage": "https://github.com/FaridSafi/react-native-gifted-chat#readme",
   "scripts": {
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "./node_modules/.bin/eslint ./src/*.{ts,tsx} --fix",
     "tsc": "node_modules/.bin/tsc --noEmit",
-    "tsc:watch": "node_modules/.bin/tsc --watch --noEmit",
-    "start": "cd example && expo start",
-    "start:web": "cd example && expo start -w --dev",
     "build": "rm -rf lib/ && node_modules/.bin/tsc && cp flow-typedefs/*.js.flow lib/",
-    "test": "TZ=Europe/Paris jest --no-watchman",
-    "test:watch": "TZ=Europe/Paris jest --watch",
-    "test:coverage": "TZ=Europe/Paris jest --coverage",
-    "prepublishOnly": "yarn lint && yarn build && yarn test",
-    "prettier": "./node_modules/.bin/prettier --write \"src/**/*.{ts,tsx}\""
+    "prepublishOnly": "yarn lint && yarn build && yarn test"
   },
   "devDependencies": {
     "@babel/core": "7.17.9",

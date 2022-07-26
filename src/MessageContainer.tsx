@@ -89,6 +89,7 @@ export interface MessageContainerProps<TMessage extends IMessage> {
   onQuickReply?(replies: Reply[]): void
   infiniteScroll?: boolean
   isLoadingEarlier?: boolean
+  showsVerticalScrollIndicator?:boolean
 }
 
 interface State {
@@ -119,6 +120,7 @@ export default class MessageContainer<
     scrollToBottomStyle: {},
     infiniteScroll: false,
     isLoadingEarlier: false,
+    showsVerticalScrollIndicator: false
   }
 
   static propTypes = {
@@ -141,6 +143,7 @@ export default class MessageContainer<
     alignTop: PropTypes.bool,
     scrollToBottomStyle: StylePropType,
     infiniteScroll: PropTypes.bool,
+    showsVerticalScrollIndicator: PropTypes.bool
   }
 
   state = {
@@ -334,7 +337,7 @@ export default class MessageContainer<
   keyExtractor = (item: TMessage) => `${item._id}`
 
   render() {
-    const { inverted } = this.props
+    const { inverted, showsVerticalScrollIndicator } = this.props
     return (
       <View
         style={
@@ -345,6 +348,7 @@ export default class MessageContainer<
           ? this.renderScrollToBottomWrapper()
           : null}
         <FlatList
+          showsVerticalScrollIndicator={showsVerticalScrollIndicator}
           ref={this.props.forwardRef}
           extraData={[this.props.extraData, this.props.isTyping]}
           keyExtractor={this.keyExtractor}
