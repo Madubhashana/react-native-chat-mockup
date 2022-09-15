@@ -33,6 +33,7 @@ export interface InputToolbarProps<TMessage extends IMessage> {
   containerStyle?: StyleProp<ViewStyle>
   primaryStyle?: StyleProp<ViewStyle>
   accessoryStyle?: StyleProp<ViewStyle>
+  textInputStyle?: StyleProp<ViewStyle>
   renderAccessory?(props: InputToolbarProps<TMessage>): React.ReactNode
   renderActions?(props: ActionsProps): React.ReactNode
   renderSend?(props: SendProps<TMessage>): React.ReactNode
@@ -59,7 +60,7 @@ export function InputToolbar<TMessage extends IMessage = IMessage>(
     }
   }, [])
 
-  const { containerStyle, ...rest } = props
+  const { containerStyle, textInputStyle, ...rest } = props
   const {
     renderActions,
     onPressActionButton,
@@ -73,7 +74,7 @@ export function InputToolbar<TMessage extends IMessage = IMessage>(
       <View style={[styles.primary, props.primaryStyle]}>
         {renderActions?.(rest) ||
           (onPressActionButton && <Actions {...rest} />)}
-        {renderComposer?.(props as ComposerProps) || <Composer {...props} />}
+        {renderComposer?.(props as ComposerProps) || <Composer {...props} textInputStyle={textInputStyle} />}
         {renderSend?.(props) || <Send {...props} />}
       </View>
       {renderAccessory && (
