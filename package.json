@@ -1,6 +1,6 @@
 {
   "name": "react-native-chat-mockup",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "A complete chat UI mockup for React Native",
   "main": "src/index.ts",
   "repository": {
